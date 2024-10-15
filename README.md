@@ -69,6 +69,17 @@ Route::get('/', function () {
 ```
 
 
+Untuk membuat tema tampilan, warna utama yang kita pergunakan: 
+Hitam
+Merah
+
+Untuk warna tambahan, di tulisan text kita menggunakan warna : 
+Putih
+Kuning Hijau
+
+
+
+
 
 
 

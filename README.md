@@ -736,6 +736,144 @@ Route::get('/', function () {
 
 ```
 
+Ini desain tampilan tabel yang cocok untuk menampilkan data dari database mariadb (17-10-2024) : 
+
+
+```php
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_','-',app()->getLocale())}}">
+
+<head>
+
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sampel Tabel</title>
+
+    <!-- Memasukan Bootstrap 5 via CDN -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Gaya kustom untuk tema gelap -->
+
+    <style>
+    body {
+
+
+        background-color: #000;
+        /** background warna hitam */
+
+        color: #fff;
+        /** tulisan warna putih */
+    }
+
+
+    .table-custom-border {
+
+        border: 3px solid #ff0000;
+
+    }
+
+
+
+    thead.head-blue {
+
+        background-color: aqua;
+
+    }
+    </style>
+
+
+</head>
+
+<div class="container">
+
+    <div>
+
+        <h1 class="mt-5">Sampel Table Dengan Border</h1>
+
+        <table class="table table-custom-border table-hover">
+
+            <thead class="table-dark">
+                <tr>
+
+                    <th scope="col">#</th>
+                    <th scope="col">Tanggal Input</th>
+                    <th scope="col">Merek Tinta</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <th scope="row">1</th>
+                    <td>2024-10-17</td>
+                    <td>Epson</td>
+                </tr>
+
+                <tr>
+
+                    <th scope="row">2</th>
+                    <td>2024-10-18</td>
+                    <td>Canon</td>
+
+                </tr>
+
+                <tr>
+
+                    <th scope="row">3</th>
+                    <td>2024-10-19</td>
+                    <td>Brother</td>
+
+                </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+        <footer class="mx-auto" style="width: 1250px; padding-top: 5px; padding-bottom: 10px;">
+
+            <p>&copy; 2024 Ibnu Chalid.</p>
+
+        </footer>
+
+
+    </div>
+
+</div>
+
+<!--- Bootstrap 5 JS --->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+
+</body>
+
+</html>
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 

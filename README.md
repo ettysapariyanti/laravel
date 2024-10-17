@@ -934,6 +934,100 @@ class PegawaiController extends Controller
 
 ```
 
+ini source code untuk tabel nya : 
+
+```php
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_','-',app()->getLocale())}}">
+
+<!-- Halaman tabel data pegawai -->
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tabel Data Pegawai</title>
+
+    <!-- memasukan Bootstrap 5 via CDN --->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Gaya kustom untuk tema gelap -->
+
+    <style>
+    body {
+
+        background-color: #000;
+        /** background warna hitam */
+
+        color: #fff;
+        /** tulisan warna putih */
+
+    }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <table class="table table-dark table-striped">
+
+        <thead>
+
+            <tr>
+
+                <th scope="col">#</th>
+                <th scope="col">Tanggal Input</th>
+                <th scope="col">Nama Pegawai</th>
+                <th scope="col">Divisi</th>
+                <th scope="col">Sub Divisi</th>
+
+
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+
+            @foreach($pegawais as $pegawai)
+
+            <tr>
+
+                <th scope="row">{{ $loop->iteration }}</th>
+
+                <td>{{ $pegawai->tanggalinput }}</td>
+                <td>{{ $pegawai->namapegawai }}</td>
+                <td>{{ $pegawai->divisi }}</td>
+                <td>{{ $pegawai->subdivisi }}</td>
+
+            </tr>
+
+            @endforeach
+
+
+        </tbody>
+
+    </table>
+
+
+</body>
+
+
+
+</html>
+
+
+
+
+```
+
+
 
 
 

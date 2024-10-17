@@ -427,7 +427,55 @@ form input merek tinta tanggal 17 Oktober 2024
 ```
 
 
+source code controller merek tinta ( 17 Oktober 2024 ) :
 
+```php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\RedirectResponse;
+
+use Illuminate\Http\Request;
+
+use Illuminate\Http\Response;
+
+use App\Models\Merektinta;
+
+class MerekTintaController extends Controller
+{
+    // ini untuk menampilkan form input data merek tinta
+
+    public function create(){
+
+        // dd('index');
+
+        return view('merektintas.index');
+    }
+
+    public function store(Request $request){
+
+        $validateData = $request->validate([
+
+            'tanggalinput' => 'date', // validasi input tanggal
+
+            'merektinta' => 'string|max:20', // validasi input merek tinta
+        ]);
+
+        // Simpan Data Ke database
+
+        Merektinta::create( $validateData );
+
+        return redirect()->back();
+}
+
+}
+
+
+
+
+```
 
 
 

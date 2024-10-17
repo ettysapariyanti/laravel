@@ -702,7 +702,39 @@ form untuk input data untuk mengisi data merek tinta ( 17 Oktober 2024 ) index.b
 
 ```
 
+isi file web.php untuk input data merek tinta:
 
+```php
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\MerekTintaController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get("merektintas", [MerekTintaController::class, 'create'])->name('merektinta.index');
+
+Route::post('merektintas/store', [MerekTintaController::class, 'store'])->name('merektinta.store');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+
+
+
+```
 
 
 

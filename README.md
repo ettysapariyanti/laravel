@@ -478,7 +478,33 @@ class MerekTintaController extends Controller
 ```
 
 
+source code model Merek Tinta : 
 
+```php
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Merektinta extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+
+        'tanggalinput',
+        'merektinta',
+
+    ];
+}
+
+
+
+
+```
 
 
 

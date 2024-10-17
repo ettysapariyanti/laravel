@@ -865,7 +865,74 @@ Ini desain tampilan tabel yang cocok untuk menampilkan data dari database mariad
 ```
 
 
+di bawah ini ada source untuk tampilkan data dari tabel mariadb ke tabel yang menggunakan Bootstrap 5 , source code ini diletakan di controller : 
 
+```php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Pegawai;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+class PegawaiController extends Controller
+{
+    // Membuat kontroler untuk halaman 1
+    public function create():Response
+    {
+
+        // dd('create data pegawai');
+
+        return response(view('pegawais.create'));
+
+    }
+
+    public function store(Request $request){
+
+        // validasi inputan dari form pegawai
+
+        $validateData = $request->validate([
+            'tanggalinput'=> ['date'],
+            'namapegawai'=> ['max:50'],
+            'divisi'=> ['max:100'],
+            'subdivisi'=> ['max:100'],
+        ]);
+
+        // Simpan ke database
+
+        Pegawai::create([
+
+            'tanggalinput' => $request->tanggalinput,
+            'namapegawai'=> $request->namapegawai,
+            'divisi'=> $request->divisi,
+            'subdivisi'=> $request->subdivisi,
+
+        ]);
+
+        return redirect()->back();
+
+    }
+
+    public function tampildatapegawai()
+    {
+
+        $pegawais = Pegawai::select('tanggalinput','namapegawai','divisi','subdivisi')->get();
+
+        // return $pegawais;
+        // $pegawais = Pegawai::all();
+        return view('pegawais.tampildatapegawai', compact('pegawais'));
+
+
+    }
+}
+
+
+
+
+```
 
 
 

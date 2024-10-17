@@ -507,7 +507,7 @@ class Merektinta extends Model
 ```
 
 
-source code file migration untuk membuat tabel merek tinta : 
+source code file migration untuk membuat tabel merek tinta (17 Oktober 2024) : 
 
 ```php
 

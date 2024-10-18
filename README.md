@@ -1447,7 +1447,77 @@ tampilan terakhir yang bisa berjalan untuk input merek tinta ke dalam database m
 
 ```
 
+ini untuk controller kedua tampilan di atas : 
 
+```php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\RedirectResponse;
+
+use Illuminate\Http\Request;
+
+use Illuminate\Http\Response;
+
+use App\Models\Merektinta;
+
+class MerekTintaController extends Controller
+{
+    // ini untuk menampilkan form input data merek tinta
+
+    public function create(){
+
+        // dd('index');
+
+        return view('merektintas.index');
+    }
+
+    public function store(Request $request){
+
+        $validateData = $request->validate([
+
+            'tanggalinput' => 'date', // validasi input tanggal
+
+            'merektinta' => 'string|max:20', // validasi input merek tinta
+        ]);
+
+        // Simpan Data Ke database
+
+        Merektinta::create( $validateData );
+
+        return redirect()->back();
+
+    }
+
+    public function showtable(Request $request) {
+
+        //Menampilkan beberapa data dari tabel merektintas di mariadb
+
+
+        $merektintas = Merektinta::select('id','tanggalinput','merektinta')->get();
+
+        return view('merektintas.table', compact('merektintas'));
+        
+    }
+
+
+    public function showsample(Request $request) {
+
+        return view('merektintas.sample');
+        
+    }
+
+
+
+
+}
+
+
+
+
+```
 
 
 

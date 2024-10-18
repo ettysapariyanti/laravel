@@ -1156,7 +1156,129 @@ Ini desain tabel yang dominasi warna hitam dan merah untuk menampilkan data :
 ```
 
 
+Update terbaru yang bisa jalan tampilan untuk menampilkan data di tabel data tinta (tampilan tabel menggunakan Bootstrap 5 ) : 
 
+```php
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_','-',app()->getLocale())}}">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tabel Merek Tinta</title>
+
+    <!-- Memasukan Bootstrap 5 via CDN -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Gaya kustom untuk tema gelap -->
+
+
+    <style>
+    body {
+
+        background-color: #000;
+        /** background warna hitam */
+
+        color: #fff;
+        /** tulisan warna putih */
+
+    }
+
+    .table-custom-border {
+
+        border: 3px solid #ff0000;
+    }
+
+    thead.head-blue {
+
+        background-color: aqua;
+
+    }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div>
+
+            <h1 class="mt-5">Daftar Merek Tinta</h1>
+
+            <table class="table table-custom-border table-hover">
+
+                <thead class="table-dark">
+
+
+                    <tr>
+
+                        <th scope="col">#</th>
+
+                        <th scope="col">Tanggal Input</th>
+
+                        <th scope="col">Merek Tinta</th>
+
+                    </tr>
+
+
+                </thead>
+
+                <tbody>
+
+                    @foreach($merektintas as $merektinta)
+
+                    <tr>
+
+                        <th scope="row">{{ $merektinta->id }}</th>
+
+                        <td>{{ $merektinta->tanggalinput }}</td>
+
+                        <td>{{ $merektinta->merektinta }}</td>
+
+                    </tr>
+
+
+                    @endforeach
+
+
+                </tbody>
+
+
+            </table>
+
+            <footer class="mx-auto" style="width: 1250px; padding-top: 5px; padding-bottom: 10px;">
+
+                <p>&copy; 2024 Ibnu Chalid.</p>
+
+            </footer>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+
+</body>
+
+
+</html>
+
+
+
+
+```
 
 
 

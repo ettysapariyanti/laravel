@@ -1280,7 +1280,172 @@ Update terbaru yang bisa jalan tampilan untuk menampilkan data di tabel data tin
 
 ```
 
+tampilan terakhir yang bisa berjalan untuk input merek tinta ke dalam database mariadb : 
 
+```php
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_','-',app()->getLocale())}}">
+
+<!-- Halaman input data merek tinta menggunakan function create sesuai tutorial indokoding -->
+
+
+<head>
+
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Input Merek Tinta</title>
+
+    <!-- Memasukan Bootstrap 5 via CDN -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Gaya kustom untuk tema gelap -->
+
+    <style>
+    body {
+
+
+        background-color: #000;
+        /** background warna hitam */
+
+        color: #fff;
+        /** tulisan warna putih */
+    }
+
+    .formulir-merektinta {
+
+        background-color: #333;
+
+        border: 3px solid #ff0000;
+
+        border-radius: 4px;
+    }
+
+    .form-control:focus {
+
+        background-color: #000;
+
+        color: #00FF66;
+    }
+
+
+    .form-control::placeholder {
+
+        color: #00FF66
+    }
+
+    .label-form {
+
+        background-color: #333;
+
+        color: #fff;
+
+        padding: 5px 10px;
+
+        border-radius: 3px;
+
+    }
+
+    .input-form {
+
+        background-color: #000;
+
+        color: #00ff66;
+
+        padding: 5px 10px;
+
+        border-radius: 4px;
+
+        border-color: #ff0000;
+    }
+
+    .btn-custom {
+
+        background-color: #ff0000;
+        /** tombol warna merah */
+    }
+
+    .btn-custom:hover {
+
+        background-color: #cc0000;
+        /** Lebih merah ketika kursor berada di atas tombol */
+    }
+    </style>
+
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <h1 class="mt-5">Input Merek Tinta</h1>
+
+        <form action="{{ route('merektinta.store')}}" method="POST"
+            class="formulir-merektinta form-control:focus form-control::placeholder">
+
+            @csrf
+
+            <div class="form-group mx-auto" style="width: 1250px; padding-top: 10px; padding-bottom: 5px;">
+
+                <label class="label-form">Tanggal Input</label>
+
+                <input type="date" class="form-control input-form" name="tanggalinput" id="tanggalinput"
+                    value="{{ old('tanggalinput')}}" placeholder="Isikan Tanggal Input">
+
+            </div>
+
+            <div class="form-group mx-auto" style="width: 1250px; padding-top: 10px; padding-bottom: 5px;">
+
+                <label class="label-form">Merek Tinta</label>
+
+                <input type="text" class="form-control input-form" name="merektinta" id="merektinta"
+                    value="{{ old('merektinta')}}" placeholder="Isikan Merek Tinta">
+
+
+
+            </div>
+
+            <div class="form-group"
+                style="width: 1250px; padding-top: 5px; padding-bottom: 20px; padding-left: 20px; padding-right: 10px;">
+
+                <button type="submit" class="btn btn-custom btn-lg">Simpan</button>
+
+            </div>
+
+
+        </form>
+
+        <footer class="mx-auto" style="width: 1250px; padding-top: 5px; padding-bottom: 10px;">
+
+            <p>&copy; 2024 Ibnu Chalid.</p>
+
+        </footer>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+
+</body>
+
+
+</html>
+
+
+
+
+
+```
 
 
 

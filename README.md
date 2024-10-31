@@ -1519,6 +1519,8 @@ class MerekTintaController extends Controller
 
 ```
 
+Form input, edit dan hapus data yang ada menu untuk berpindah - pindah halaman sudah berhasil dibuatkan, selanjutnya membuat halaman berisi tabel untuk menampilkan data yang tersimpan, dan juga source code untuk menampilkan peringatan apabila inputan dari user tidak sesuai dengan aturan yang sudah ditetapkan.
+
 
 
 

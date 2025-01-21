@@ -1583,6 +1583,44 @@ class PenggunaController extends Controller
 
 ```
 
+## Model Pengguna
+Ini adalah file model pengguna
+
+```php
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Pengguna extends Model
+{
+    use HasFactory;
+	
+	protected $connection = 'mikrotik'; // menggunakan koneksi mikrotik
+	
+	protected $tabel= 'penggunas'; // koneksi ke tabel penggunas
+	
+	protected $primaryKey ='id', // kolom id jadi primary key untuk tabel penggunas
+	
+	protected $incrementing = false; // id tidak auto increment
+	
+	protected $keyType = 'string'; // primary key bertipe data VARCHAR
+	
+	
+	protected $fillable = [
+	
+		'id',
+		'nip',
+		'kodebagian',
+		'namabagian',
+	];
+	
+}
+
+```
 
 
 

@@ -1522,6 +1522,67 @@ class MerekTintaController extends Controller
 Form input, edit dan hapus data yang ada menu untuk berpindah - pindah halaman sudah berhasil dibuatkan, selanjutnya membuat halaman berisi tabel untuk menampilkan data yang tersimpan, dan juga source code untuk menampilkan peringatan apabila inputan dari user tidak sesuai dengan aturan yang sudah ditetapkan.
 
 
+# Source Untuk Test Koneksi Ke Database MariaDB
+Ini source code untuk mengetest koneksi ke database mariadb. Nantinya hasil dari debugging dan test koneksi akan di munculkan di console browser (entah Chrome atau Firefox).
+
+## File PenggunaController.php
+Ini merupakan file controllernya
+
+```php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\RedirectResponse;
+
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Http\Request;
+
+use Illuminate\Http\Response;
+
+use App\Models\Pengguna;
+
+class PenggunaController extends Controller
+{
+    // Tampilkan halaman index
+	
+	public function index(){
+		
+		try {
+			
+			// Mengecek Koneksi database
+			
+			DB::connection('mikrotik')->getPdo();
+			
+			$dbName = DB::connection('mikrotik')->getDatabaseName();
+			
+			$tableExists = DB::getSchemaBuilder()->hasTable('penggunas');
+			
+			return view('penggunas.index',[
+			
+				'status' => 'success',
+				
+				'message' => "Koneksi berhasil ke database: $dbName. Tabel 'penggunas' : " . ($tableExists ? 'ada' : 'Tidak ada'),
+			
+			]);
+		} catch (\Exception $e) {
+			
+			return view('penggunas.index',[
+			
+				'status' => 'error',
+				
+				'message' => 'Gagal Terhubung ke database: ' . $e->getMessage(),
+			
+			]);
+	}
+}
+
+}
+
+```
+
 
 
 

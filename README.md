@@ -1622,8 +1622,59 @@ class Pengguna extends Model
 
 ```
 
+## Tampilan HTML Pengguna
+ini adalah file tampilan html pengguna yang mana berformat .blade.php . jalankan file ini untuk melihat hasil koneksi ke database dan debuggingnya.
+
+```php
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+	
+	
+	
+	
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<h1>Test Koneksi Database</h1>
+	
+	<p>Cek Console Browser untuk lihat hasil</p>
+	
+		<script>
+	
+			const status = "{{ $status }}";
+			
+			const message = "{{ $message }}"
+			
+			
+			if (status === "success"){
+				
+				console.log("sukses: ", message);
+			} else {
+				
+				console.error("Error", message);
+			}
+		
+		</script>
+	
+	
+	
+	
+	
+	</body>
+
+</html>
 
 
+
+```
 
 
 

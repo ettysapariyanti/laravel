@@ -1782,7 +1782,108 @@ class PenggunaController extends Controller
 
 ```
 
+## Source code sementara untuk menampilkan nama database dan tabel, berikut ini adalah file controller nya :
 
+```php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\RedirectResponse;
+
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Http\Request;
+
+use Illuminate\Http\Response;
+
+use App\Models\Pengguna;
+
+class PenggunaController extends Controller
+{
+	
+	public function index() {
+		
+		$pesan1 = "Tombol berfungsi menampilkan pesan koneksi SQL";
+		
+		$pesan2 = "Tombol berfungsi menguji format penulisan";
+		
+		return view('penggunas.index', compact('pesan1', 'pesan2'));
+	}
+    
+	public function koneksi() {
+		
+		$namadatabase = DB::connection('mikrotik')->getDatabaseName();
+		
+		$namatabel = DB::connection('mikrotik')->select("SHOW TABLES");
+		
+		return view('penggunas.koneksi', compact('namadatabase','namatabel'));
+		
+	}
+	
+
+}
+
+```
+
+## Ini adalah source code .blade.php untuk menampilkan hasilnya : 
+
+```php
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>Input Data</title>
+		
+		@vite(['resources/css/app.css','resources/js/app.js'])
+	
+		
+	
+	</head>
+	
+	<body class="bg-black text-white d-flex justify-content-center align-items-center vh-100">
+	
+		<div class="text-center">
+		
+			<h1>Uji Coba SQL</h1>
+			
+			<p>Nama Database : {{ $namadatabase }}</p>
+			
+			<p>Daftar Tabel yang ada : </p>
+			
+			<!-- <ul> -->
+			
+				@foreach ($namatabel as $tabel)
+				
+					<p>{{ $tabel->{'Tables_in_' . $namadatabase} }}</p>
+					
+				@endforeach
+			
+			
+			
+			<!-- </ul> -->
+		
+			<button class="btn btn-danger btn-lg">Test</button>
+		
+		</div>
+		
+	
+	
+	</body>
+	
+</html>
+
+
+
+```
 
 
 

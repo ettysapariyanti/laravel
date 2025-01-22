@@ -1675,6 +1675,118 @@ ini adalah file tampilan html pengguna yang mana berformat .blade.php . jalankan
 
 
 ```
+# Source Code Untuk Mencetak Hasil Dari Query SQL ke Console Browser atau Halaman Browser
+source code ini berfungsi untuk menampilkan pesan pesan debug atau pesan dari system yang terkait dengan proyek aplikasi web yang sedang di bangun.
+
+## Ini Contoh Source Code untuk file controller nya : 
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\RedirectResponse;
+
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Http\Request;
+
+use Illuminate\Http\Response;
+
+use App\Models\Pengguna;
+
+class PenggunaController extends Controller
+{
+	
+	public function index() {
+		
+		$pesan1 = "Tombol berfungsi menampilkan pesan koneksi SQL";
+		
+		$pesan2 = "Tombol berfungsi menguji format penulisan";
+		
+		return view('penggunas.index', compact('pesan1', 'pesan2'));
+	}
+    
+	public function isidata() {
+		
+		return view('penggunas.isidata');
+		
+	}
+	
+
+}
+
+
+```
+
+## Ini Contoh Source Code Untuk Menampilkan Hasil Pesan Text nya, Di Tulis Di File .blade.php : 
+
+```php
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+	
+		<meta charset="UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial0scale=1.0">
+	
+		<title>Test Koneksi</title>
+		
+		@vite(['resources/css/app.css','resources/js/app.js'])
+	
+	
+	
+	
+	</head>
+	
+	
+	<body class="bg-black text-white d-flex justify-content-center align-items-center vh-100">
+	
+	
+		<div class="text-center">
+		
+			<h1>Uji Coba Koneksi SQL</h1>
+			
+			<p>Isi Pesan 1 : {{ $pesan1 }}</p>
+			
+			<p>Isi Pesan 2 : {{ $pesan2 }}</p>
+			
+			<button id="tombol-pesan" class="btn btn-danger btn-lg">Uji Koneksi SQL</button>
+		
+		
+		</div>
+		
+		<script>
+		
+			
+			// Event handler untuk tombol
+			
+			document.getElementById('tombol-pesan').addEventListener('click', function(){
+				
+				console.log("Pesan 1 : {{ $pesan1 }}");
+				
+				console.log("Pesan 2 : {{ $pesan2 }}");
+				
+				
+			});
+			
+		</script>
+	</body>
+	
+</html>
+
+
+
+```
+
+
+
+
+
+
 
 
 

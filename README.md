@@ -1885,7 +1885,22 @@ class PenggunaController extends Controller
 
 ```
 
+### Ini Adalah Source Code untuk Menghapus Data di MariaDB / MySQL. Ini adalah source code di file controller : 
 
+```php
+
+public function deletedata(){
+		
+		// Hapus data berdasarkan ID
+		
+		
+		$id='pg1';
+		
+		DB::connection('mikrotik')->table('penggunas')->where('id', $id)->delete();
+		
+	}
+
+```
 
 
 

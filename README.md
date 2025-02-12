@@ -1901,6 +1901,139 @@ public function deletedata(){
 	}
 
 ```
+### 12 Februari 2025
+### Ini adalah source code /resources/js/app.js yang ada di proyek Laravel 10 yang sudah bagus dan sedang di kembangkan . source code ini mencoba memakai datatables.net dengan tema bootstrap 5 dan fitur responsif:
+
+```php
+
+import './bootstrap';
+
+// Import JQuery
+
+import $ from 'jquery'; // Jquery as the primary global object
+
+window.$ = window.jQuery = $;
+
+import dt from 'datatables.net-bs5';
+
+
+
+
+
+// di bawah ini script untuk mencoba mencegah masalah CSRF
+
+// Ambil CSRF token dari meta tag
+
+const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+// Konfigurasi global untuk semua AJAX request di JQuery
+
+$.ajaxSetup({
+	
+	xhrFields: { withCredentials: true }, // Mengizinkan pengiriman cookie untuk CSRF
+    headers: { 'X-Requested-With': 'XMLHttpRequest' } // Identifikasi request sebagai AJAX
+});
+
+
+
+
+// Import Bootstrap
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+// Import Datatables.net with Bootstrap 5 theme.
+
+import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css'
+
+import 'datatables.net-bs5/js/dataTables.bootstrap5.min.js'
+
+
+// Import Datatables.net with Bootstrap 5 theme and Responsive feature
+
+import 'datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css'
+
+import 'datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js'
+
+
+// Import jquery
+
+// import 'jquery/dist/jquery.min.js';
+
+
+$(document).ready(function () {
+	
+	console.log("JQuery siap dipergunakan");
+	
+	let state = 0;
+	
+	let defaultTheme = { // Menyimpan tema awal
+        bodyBg: $('body').css('background-color'),
+        formBg: $('#formpengguna').css('background-color'),
+        labelColor: $('label').css('color'),
+        titleColor: $('#judulformpengguna').css('color')
+    };
+	
+	$('#ubahwarnalabel').on('click', function() {
+		
+		state = (state + 1) % 5; // berputar di antara 3 kondisi: 0 (body), 1 (form), 2 (label)
+		
+		
+		
+		if (state === 0) {
+		
+			// Kembalikan ke tema semula
+            $('body').css('background-color', defaultTheme.bodyBg);
+            $('#formpengguna').css('background-color', defaultTheme.formBg);
+            $('label').css('color', defaultTheme.labelColor);
+            $('#judulformpengguna').css('color', defaultTheme.titleColor);
+		
+		
+		} else if (state === 1) {
+			
+			// Ubah warna background body
+			
+			$('body').css('background-color','#FDEDEC');
+			
+		} else if (state === 2) {
+			
+			// Ubah warna judul form pengguna
+			
+			$('#judulformpengguna').css('color', '#3904cb');
+			
+		} else if (state === 3) {
+			
+			// Ubah warna form pengguna
+			
+			$('#formpengguna').css('background-color', '#FCF3CF');
+		
+		} else if (state === 4) {
+			
+			// Ubah warna label
+			
+			$('label').css('color', 'black');
+			
+			
+		}
+		
+		
+		
+		
+	});
+	
+});
+
+
+
+console.log($.fn.dataTables);
+
+
+
+
+
+
+```
 
 
 
